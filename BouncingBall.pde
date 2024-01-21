@@ -34,6 +34,7 @@ void setup() {
   Drake = new powerup();
 }
 
+
 void draw() {
    if (clicktostart==0)
       {
@@ -157,6 +158,7 @@ void draw() {
       }
       }
 }
+
 
 void mouseClicked() {
   clicktostart += 1;
