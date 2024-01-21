@@ -1,0 +1,13 @@
+class runner
+    {
+      color Color;
+      float size,speed,originalspeed;
+      float xpos,ypos;
+      runner(color c, float x, float y, float s,float s2)
+          {
+            Color = c;
+            xpos= x;
+            ypos=y;
+            speed=s;
+            originalspeed=s;
+            size=s2;
