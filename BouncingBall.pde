@@ -56,3 +56,31 @@ class runner
             speed=s;
             originalspeed=s;
             size=s2;
+ }
+          int direction(float x){
+          if (x<0){
+            return(-1);
+          }
+          else
+            {
+            return(1);
+            }
+          }
+          void update()
+          {
+          //speed up along with score
+          speed=(abs(originalspeed)+(log(score+1))/2)*direction(speed);
+          if (xpos<0 || xpos>800)
+          {
+          speed=speed*-1;  
+          }
+          xpos+=speed;
+          fill(Color);
+          ellipse(xpos,ypos,(size),(size));
+          fill(0,0,0);
+          textSize(25);
+          textAlign(CENTER);
+          text("↑",xpos,ypos+8); 
+          }
+    }
+
