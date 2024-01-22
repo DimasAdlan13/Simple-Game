@@ -1,3 +1,4 @@
+class treasure
 {
       color Color;
       float size;
