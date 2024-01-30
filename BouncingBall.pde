@@ -160,46 +160,55 @@ void draw() {
       }
 }
 
-class runner
-    {
-      color Color;
-      float size,speed,originalspeed;
-      float xpos,ypos;
-      runner(color c, float x, float y, float s,float s2)
-          {
-            Color = c;
-            xpos= x;
-            ypos=y;
-            speed=s;
-            originalspeed=s;
-            size=s2;
- }
-          int direction(float x){
-          if (x<0){
-            return(-1);
-          }
-          else
-            {
-            return(1);
-            }
-          }
-          void update()
-          {
-          //speed up along with score
-          speed=(abs(originalspeed)+(log(score+1))/2)*direction(speed);
-          if (xpos<0 || xpos>800)
-          {
-          speed=speed*-1;  
-          }
-          xpos+=speed;
-          fill(Color);
-          ellipse(xpos,ypos,(size),(size));
-          fill(0,0,0);
-          textSize(25);
-          textAlign(CENTER);
-          text("↑",xpos,ypos+8); 
-          }
+class runner {
+    color Color;  // Mendeklarasikan variabel warna
+    float size, speed, originalspeed;  // Mendeklarasikan variabel ukuran, kecepatan, dan kecepatan awal
+    float xpos, ypos;  // Mendeklarasikan variabel posisi x dan y
+
+    runner(color c, float x, float y, float s, float s2) {
+        // Konstruktor untuk menginisialisasi objek runner
+        Color = c;
+        xpos = x;
+        ypos = y;
+        speed = s;
+        originalspeed = s;
+        size = s2;
     }
+
+    int direction(float x) {
+        // Fungsi untuk menentukan arah berdasarkan nilai x
+        if (x < 0) {
+            return(-1);  // Mengembalikan -1 jika x negatif
+        } else {
+            return(1);   // Mengembalikan 1 jika x tidak negatif
+        }
+    }
+
+    void update() {
+        // Fungsi untuk memperbarui keadaan objek
+        // Perhitungan kecepatan baru berdasarkan rumus tertentu
+        speed = (abs(originalspeed) + (log(score + 1)) / 2) * direction(speed);
+
+        // Mengubah arah kecepatan jika objek melewati batas layar
+        if (xpos < 0 || xpos > 800) {
+            speed = speed * -1;
+        }
+
+        // Mengupdate posisi objek
+        xpos += speed;
+
+        // Menggambar elips berwarna dengan posisi dan ukuran yang sesuai
+        fill(Color);
+        ellipse(xpos, ypos, size, size);
+
+        // Menambahkan teks panah di atas objek
+        fill(0, 0, 0);
+        textSize(25);
+        textAlign(CENTER);
+        text("↑", xpos, ypos + 8);
+    }
+}
+
 class treasure
 {
       color Color;
