@@ -1,12 +1,10 @@
 Game Deskripsi:
 
-Program ini adalah permainan sederhana yang melibatkan karakter berlari, meloncat, dan mengumpulkan harta karun. Dalam permainan ini, pemain memiliki karakter utama, Stan, yang dapat berinteraksi dengan harta karun dan powerup. Terdapat juga karakter musuh, greg dan charlie, yang bergerak secara horizontal.
-
-Harta karun muncul secara acak di layar dan berubah warna saat dikumpulkan oleh pemain, sementara powerup memberikan efek khusus, seperti jetpack, perubahan ukuran, atau perlambatan waktu. Program menangani logika permainan, termasuk reset dan peningkatan skor saat harta karun dikumpulkan.
+Program ini adalah permainan sederhana yang melibatkan karakter berlari, meloncat, dan mengumpulkan harta karun. Harta karun muncul secara acak di layar dan berubah warna saat dikumpulkan oleh pemain, sementara powerup memberikan efek khusus, seperti jetpack, perubahan ukuran, atau perlambatan waktu. Program menangani logika permainan, termasuk reset dan peningkatan skor saat harta karun dikumpulkan.
 
 Penggunaan fungsi keyPressed() memungkinkan pemain mengontrol karakter, dan fungsi mouseClicked() digunakan untuk memulai permainan. Program memberikan instruksi dan informasi permainan dengan jelas pada layar. Secara keseluruhan, ini adalah permainan sederhana dengan fitur menarik seperti karakter bergerak, mengumpulkan harta karun, dan efek powerup.
 
-Program ini adalah permainan sederhana yang memungkinkan pemain mengendalikan karakter utama, Stan, untuk berlari dan meloncat guna mengumpulkan harta karun. Dua karakter musuh, greg dan charlie, juga bergerak horizontal di layar. Pemain dapat berinteraksi dengan harta karun yang muncul secara acak dan powerup dengan efek khusus.
+Program ini adalah permainan sederhana yang memungkinkan pemain mengendalikan karakter utama, Stan, untuk berlari dan meloncat guna mengumpulkan harta karun. Pemain dapat berinteraksi dengan harta karun yang muncul secara acak dan powerup dengan efek khusus.
 
 Fitur Utama:
 
