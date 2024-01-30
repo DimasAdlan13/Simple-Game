@@ -223,7 +223,20 @@ class treasure
             vvector=random(-2,2);
             hvector=random(-5,5);     
           }
-          
+(Penjelasan Kode)
+  1.class treasure: Mendefinisikan kelas bernama treasure.
+  2.Variabel Anggota (color Color, float size, float xpos, dst): Mendefinisikan variabel anggota kelas yang akan digunakan 
+  untuk menyimpan warna, ukuran, dan posisi objek harta karun (treasure).
+  3.Konstruktor (treasure(color c, float x, float y, float s) { ... }): Merupakan metode khusus yang dipanggil saat 
+  objek dari kelas treasure dibuat. Konstruktor ini digunakan untuk menginisialisasi nilai awal dari objek harta karun 
+  berdasarkan parameter yang diberikan.
+    -color c: Parameter untuk warna harta karun.
+    -float x: Parameter untuk posisi horizontal harta karun (xpos).
+    -float y: Parameter untuk posisi vertikal harta karun (ypos).
+    -float s: Parameter untuk ukuran harta karun (size).
+  4.Inisialisasi Vektor (vvector dan hvector): Menginisialisasi vektor vertikal (vvector) dan vektor horizontal (hvector) 
+  dengan nilai acak. 
+
        void reenterscreen()
        //treasure reenters screen after leaving it
         {
@@ -242,14 +255,30 @@ class treasure
         this.ypos=height;
         }
         }
-        
+(Penjelasan Kode)
+  1.void reenterscreen(): Ini adalah deklarasi metode tanpa nilai kembali (void). Metode ini tidak mengembalikan nilai,
+  tetapi bertanggung jawab untuk memastikan bahwa objek harta karun tetap di dalam layar permainan.
+  2.Komentar (// treasure reenters screen after leaving it): Komentar ini memberikan deskripsi singkat tentang tujuan 
+  dari metode tersebut.
+  3.Pengecekan Batas Layar:
+    -Jika nilai xpos (posisi horizontal objek harta karun) melebihi lebar layar (width), maka xpos diatur kembali menjadi 0, 
+    sehingga objek akan muncul di sebelah kiri layar.
+    -Jika xpos kurang dari 0, maka xpos diatur kembali menjadi width, sehingga objek akan muncul di sebelah kanan layar.
+    -Jika ypos (posisi vertikal objek harta karun) melebihi tinggi layar (height), maka ypos diatur kembali menjadi 0,
+    sehingga objek akan muncul di bagian atas layar.
+    -Jika ypos kurang dari 0, maka ypos diatur kembali menjadi height, sehingga objek akan muncul di bagian bawah layar.
         
       boolean contact(jumper a){
               //x^2 +y^2
             float first = pow((a.xpos-this.xpos),2)+pow((a.ypos-this.ypos),2);
           return(pow(first,0.5)<(this.size+a.size)/1.5);
           }
-        
+(Penjelasan Kode)
+  1.float first = pow((a.xpos - this.xpos), 2) + pow((a.ypos - this.ypos), 2);: Menghitung jarak kuadrat antara pusat objek 
+  jumper dan objek treasure menggunakan formula jarak Euclidean.
+  2.return pow(first, 0.5) < (this.size + a.size) / 1.5;: Mengembalikan true jika jarak antara pusat kedua objek kurang dari 
+  separuh dari jumlah ukuran objek treasure dan jumper. Dengan kata lain, ini menandakan bahwa kedua objek bersentuhan.
+       
       void update(jumper a)
       {
       reenterscreen();
@@ -263,18 +292,43 @@ class treasure
         vvector=random(-20,20)/10;
         hvector=random(-40,40)/10;
       }
+(Penjelasan Kode)
+  1.reenterscreen(): Memanggil metode reenterscreen() untuk memastikan bahwa objek treasure tetap berada dalam layar
+    permainan.
+  2.Kontrol Tabrakan (contact(a))
+    Jika terjadi kontak antara objek treasure dan objek jumper (diidentifikasi oleh metode contact(a) yang mengembalikan 
+    true), maka:
+    -score += 1;: Menambahkan skor.
+    -this.Color = color(random(255), random(255), random(255));: Mengatur warna objek treasure menjadi warna acak baru.
+    -this.xpos = random(100, 700);: Mengatur posisi horizontal objek treasure ke lokasi acak di dalam layar.
+    -this.ypos = random(100, 350);: Mengatur posisi vertikal objek treasure ke lokasi acak di dalam layar.
+    -vvector = random(-20, 20) / 10; dan hvector = random(-40, 40) / 10;: Mengatur vektor gerak objek treasure dengan 
+    nilai acak baru.
+
       // random walk
       if ((frameCount%15==0) && score>=10)
       {
       rhvector=random(-pow(score,0.5),pow(score,0.5))/2;
       rvvector=random(-pow(score,0.5),pow(score,0.5))/3;
       }
+(Penjelasan Kode)
+  1.Setiap 15 frame dan ketika skor (score) sudah mencapai atau melebihi 10, maka objek treasure akan melakukan gerakan acak.
+  2.rhvector dan rvvector adalah vektor gerakan acak untuk komponen horizontal dan vertikal.
+  3.random(-pow(score, 0.5), pow(score, 0.5)) memberikan nilai acak antara negatif akar kuadrat skor dan akar kuadrat skor.
+  4.Ini menciptakan gerakan acak yang lebih dramatis seiring pertambahan skor.
+
       //move with score
       if (score>=5)
         {
         this.xpos+=hvector+rhvector;
         this.ypos+=vvector+rvvector;
         }
+(Penjelasan Kode)
+  1.Jika skor (score) mencapai atau melebihi 5, maka objek treasure akan bergerak.
+  2.hvector dan vvector adalah vektor gerakan asli yang diinisialisasi pada saat pembuatan objek treasure.
+  3.rhvector dan rvvector (jika kondisi sebelumnya terpenuhi) akan ditambahkan ke vektor gerakan asli untuk menciptakan
+    pergerakan yang lebih kompleks.
+
       fill(this.Color);
       ellipse(this.xpos,this.ypos,this.size,this.size);
       fill(0,0,0);
@@ -283,6 +337,9 @@ class treasure
       text(("X"), xpos,ypos+7.5);
     }
     }
+(Penjelasan Kode)
+  1.Menampilkan objek treasure sebagai lingkaran dengan warna sesuai Color dan ukuran sesuai size.
+  2.Menampilkan teks "X" di atas lingkaran sebagai penanda.
 class jumper
       {
       color Color;
